@@ -625,6 +625,9 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
                     configParams.putAll(rc.getParameters());
                     cc.setParameters(configParams);
                 }
+                if (cc.getParameters() == null) {
+                    cc.setParameters(new HashMap<>());
+                }
                 cc.getParameters().put(org.apache.dubbo.remoting.Constants.CLIENT_KEY,rc.getClient());
                 cc.setProtocol(rc.getProtocol());
                 cc.setAddress(rc.getAddress());
